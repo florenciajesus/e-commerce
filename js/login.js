@@ -14,5 +14,5 @@ signIn.addEventListener("click", () => {
         return;
     }
     
-    window.location.href = "indexx.html";
+    window.location.href = "inicio.html";
 });
