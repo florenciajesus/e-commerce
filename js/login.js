@@ -13,6 +13,6 @@ signIn.addEventListener("click", () => {
         alert('Debe ingresar su contraseña')
         return;
     }
-    
+    localStorage.setItem("email", email);
     window.location.href = "inicio.html";
 });

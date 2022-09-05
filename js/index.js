@@ -11,4 +11,6 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+    let email = localStorage.getItem('email');
+    document.getElementById("email").innerHTML = `<a class="nav-link">${email}</a>`;
 });
