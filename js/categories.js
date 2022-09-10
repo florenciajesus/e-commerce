@@ -5,6 +5,7 @@ let currentCategoriesArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
+let email = localStorage.getItem('email');
 
 function sortCategories(criteria, array){
     let result = [];
@@ -95,6 +96,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
+
+    document.getElementById("navbarList").innerHTML += `<li class="nav-item"><a class="nav-link">${email}</a></li>`;
 
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_ASC_BY_NAME);

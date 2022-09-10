@@ -7,26 +7,27 @@ let subtitle = document.getElementById("subtitle-container");
 let currentProductsSortCriteria = undefined;
 let minPrice = undefined;
 let maxPrice = undefined;
+let email = localStorage.getItem('email');
 
 function sortProducts(criteria, array){
     let result = [];
-    if (criteria === ORDER_ASC_BY_PRICE)
+    if (criteria === ORDER_DESC_BY_PRICE)
     {
-        result = array.products.sort(function(a, b) {
-            let aCost = parseInt(a.cost);
-            let bCost = parseInt(b.cost);
-
-            if ( aCost < bCost ){ return -1; }
-            if ( aCost > bCost ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_DESC_BY_PRICE){
         result = array.products.sort(function(a, b) {
             let aCost = parseInt(a.cost);
             let bCost = parseInt(b.cost);
 
             if ( aCost > bCost ){ return -1; }
             if ( aCost < bCost ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_ASC_BY_PRICE){
+        result = array.products.sort(function(a, b) {
+            let aCost = parseInt(a.cost);
+            let bCost = parseInt(b.cost);
+
+            if ( aCost < bCost ){ return -1; }
+            if ( aCost > bCost ){ return 1; }
             return 0;
         });
     }else if (criteria === ORDER_BY_PROD_SOLD_COUNT){
@@ -103,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             showProductsList();
         }
     });
+
+    document.getElementById("navbarList").innerHTML += `<li class="nav-item"><a class="nav-link">${email}</a></li>`;
 
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_PRICE);

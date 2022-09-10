@@ -1,3 +1,5 @@
+let email = localStorage.getItem('email');
+
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -10,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("muebles").addEventListener("click", function() {
         localStorage.setItem("catID", 103);
         window.location = "products.html"
-    });
-    let email = localStorage.getItem('email');
-    document.getElementById("email").innerHTML = `<a class="nav-link">${email}</a>`;
+    });    
+    document.getElementById("navbarList").innerHTML += `<li class="nav-item"><a class="nav-link">${email}</a></li>`;
 });
